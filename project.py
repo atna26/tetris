@@ -51,8 +51,8 @@ Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem star
 #    hoverinfo = "label+percent",
 #    textinfo = "value"
 #))
-st.write("Lay off Employee startup di beberapa Negara")
-st.plotly_chart(fig)
+#st.write("Lay off Employee startup di beberapa Negara")
+#st.plotly_chart(fig)
 
 #st.dataframe(df) 
 
