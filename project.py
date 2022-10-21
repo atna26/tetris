@@ -44,13 +44,13 @@ Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem star
 """
 )
 #PLOT PIE CHART
-fig = go.Figure(
-    go.Pie(
-    labels = dflayoff['negara'],
-    values = dflayoff['jumlahpernegara'],
-    hoverinfo = "label+percent",
-    textinfo = "value"
-))
+#fig = go.Figure(
+#    go.Pie(
+#    labels = dflayoff['negara'],
+#    values = dflayoff['jumlahpernegara'],
+#    hoverinfo = "label+percent",
+#    textinfo = "value"
+#))
 st.write("Lay off Employee startup di beberapa Negara")
 st.plotly_chart(fig)
 
