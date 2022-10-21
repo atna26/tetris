@@ -27,9 +27,9 @@ Kemudian istilah Tech Winter sendiri merupakan sebuah periode penuruan ketertari
 
 st.header("Dua gelombang besar Layoff dari startup ada pada saat Covid 19 dan Tech Winter 2022.")
 
-#PLOT DATA LAY-OFF
+#PLOT DATA LAY-OFF DALAM KURUN WAKTU KEDALAM BAR CHART
 laidoff = dflayoff[['Bulan', 'Jumlah Tiap bulan']].set_index('Bulan').resample('M').sum()
-st.bar_chart(laidoff)
+st.line_chart(laidoff)
 
 col1, col2 = st.columns(2)
 with col1:
@@ -45,7 +45,7 @@ Total (yang terkonfirmasi) employee yang terkena layoff mencapai lebih dari 187 
 Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem startup berbeda di setiap Negara. Hal tersebut mempengaruhi perkembangan start-up di setiap negara, United States merupakan negara yang paling maju dalam bidang startup tech-based, Perusahaan besar seperti Tesla, Microsoft, Facebook (Meta), Netflix dan lain sebagainya berpusat disana. Jadi tidak heran jika duniamengalami dampak tech winter, United States menjadi negara yang paling banyak melakukan Layoff.\n
 """
 )
-#PLOT PIE CHART
+#PLOT DATA LAYOFF TIAP NEGARA KEDALAM PIE CHART
 fig = go.Figure(
     go.Pie(
     labels = dflayoff['Negara'],
@@ -63,7 +63,7 @@ st.markdown("***")
 st.header("Sektor Industri yang Paling Terdampak")
 st.write("Jumlah bidang industri yang paling banyak melakukan layoff (bukan jumlah karyawan layoff) adalah Finance atau biasa disebut fintech. Bidang Finace merupakan yang paling banyak melakukan layoff karyawannya, sebetulnya hal ini sudah diprediksikan sejak beberapa tahun sebelumnya karena pada bidang industri ini persaingan semakin ketat. Sudah ada beberapa cara yang dilakukan oleh fintech untuk bersaing, mulai dari menurunkan bunga, memperbesar anggaran marketing, bekerjasama dengan perusahaan bidang lain seperti retail atau bahkan memperlebar bisnis hingga membuat retail/marketplace yang didasari oleh fintech itu sendiri. ")
 
-# PLOT DATA SEKTOR INDUSTRI
+# PLOT DATA SEKTOR INDUSTRI KEDALAM BAR CHART
 st.write("Sektor Industri terdampak ")
 industri = dflayoff[['Jumlah Tiap industri', 'Industri']]
 bar_chart = alt.Chart(industri).mark_bar().encode(
