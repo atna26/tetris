@@ -43,7 +43,7 @@ Total (yang terkonfirmasi) employee yang terkena layoff mencapai lebih dari 187 
 Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem startup berbeda di setiap Negara. Hal tersebut mempengaruhi perkembangan start-up di setiap negara, United States merupakan negara yang paling maju dalam bidang startup tech-based, Perusahaan besar seperti Tesla, Microsoft, Facebook (Meta), Netflix dan lain sebagainya berpusat disana. Jadi tidak heran jika duniamengalami dampak tech winter, United States menjadi negara yang paling banyak melakukan Layoff.\n
 """
 )
-PLOT PIE CHART
+#PLOT PIE CHART
 fig = go.Figure(
     go.Pie(
     labels = dflayoff['negara'],
