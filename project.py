@@ -1,7 +1,9 @@
 from numpy import sort
 import pandas as pd
+import plotly
 import streamlit as st
 import plotly.graph_objects as go
+import altair as alt
 
 #Read Data CSV
 dflayoff = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSU-Uzxan4cQhXjmRSMpbaxqP_l9I1dnMPOxxHkeiG2m89I4LtXkLmmxGkgtZIbW8GLTmFQ-V8ovt6K/pub?output=csv")
@@ -26,7 +28,7 @@ Kemudian istilah Tech Winter sendiri merupakan sebuah periode penuruan ketertari
 st.header("Dua gelombang besar Layoff dari startup ada pada saat Covid 19 dan Tech Winter 2022.")
 
 #PLOT DATA LAY-OFF
-laidoff = dflayoff[['Bulan', 'jumlahperbulan']].set_index('Bulan').resample('M').sum()
+laidoff = dflayoff[['Bulan', 'Jumlah Tiap bulan']].set_index('Bulan').resample('M').sum()
 st.bar_chart(laidoff)
 
 col1, col2 = st.columns(2)
@@ -46,8 +48,8 @@ Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem star
 #PLOT PIE CHART
 fig = go.Figure(
     go.Pie(
-    labels = dflayoff['negara'],
-    values = dflayoff['jumlahpernegara'],
+    labels = dflayoff['Negara'],
+    values = dflayoff['Jumlah Tiap Negara'],
     hoverinfo = "label+percent",
     textinfo = "value"
 ))
@@ -60,11 +62,15 @@ st.plotly_chart(fig)
 st.markdown("***")
 st.header("Sektor Industri yang Paling Terdampak")
 st.write("Jumlah bidang industri yang paling banyak melakukan layoff (bukan jumlah karyawan layoff) adalah Finance atau biasa disebut fintech. Bidang Finace merupakan yang paling banyak melakukan layoff karyawannya, sebetulnya hal ini sudah diprediksikan sejak beberapa tahun sebelumnya karena pada bidang industri ini persaingan semakin ketat. Sudah ada beberapa cara yang dilakukan oleh fintech untuk bersaing, mulai dari menurunkan bunga, memperbesar anggaran marketing, bekerjasama dengan perusahaan bidang lain seperti retail atau bahkan memperlebar bisnis hingga membuat retail/marketplace yang didasari oleh fintech itu sendiri. ")
-#
+
 # PLOT DATA SEKTOR INDUSTRI
 st.write("Sektor Industri terdampak ")
-industri = dflayoff[['jumlahperindustri', 'Industri']].set_index('Industri')
-st.bar_chart(industri)
+industri = dflayoff[['Jumlah Tiap industri', 'Industri']]
+bar_chart = alt.Chart(industri).mark_bar().encode(
+    x="Jumlah Tiap industri:Q",
+    y=alt.Y("Industri:N", sort="-x")
+    )
+st.altair_chart(bar_chart, use_container_width=True)
 
 #PERUBAHAN YANG TERJADI DARI FENOMENA INI
 st.markdown("***")
