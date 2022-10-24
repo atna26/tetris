@@ -15,18 +15,20 @@ st.title("LAY-OFF EMPLOYEE STARTUP")
 st.markdown(
 """
 Kata Startup adalah berasal dari serapan dari Bahasa Inggris yang berarti bisnis yang baru saja dirintis atau bisnis rintisan. Startup adalah perusahaan rintisan yang belum lama beroperasi. Dengan kata lain, startup artinya perusahaan yang baru masuk atau masih berada pada fase pengembangan atau penelitian untuk terus menemukan pasar maupun mengembangkan produknya. \n \n
-Kemudian istilah Tech Winter sendiri merupakan sebuah periode penuruan ketertarikan dan investasi dalam bidang teknologi maju (advanced technology). Seperti yang kita ketahui, baru-baru ini terjadi downturn trend tech-based startup yang membuat kita semakin merasakan adanya tech winter(calcalistech). Tidak hanya di Indonesia, namun juga di seluruh dunia. Beberapa issue yang baru-baru ini terjadi : 
-- Banyaknya Layoff dari Startup di Dunia dan Indonesia
-- Penjualan Ecommerce menurun hingga 20% pada campaign 10.10 2022
-- Fabelio dinyatakan pailit
-- Traveloka menutup layanan Eats, Send dan Mart
-- HappyFresh menghentikan operasionalnya
-- dan lain sebagainya
+Menurut data (layoffs.fyi), jumlah layoff (PHK) karyawan saat ini sedang mengalami pengingkatan pada beberapa perusahaan startup. Meskipun berbagai stimulus dan bantuan diberikan kepada para pengusaha agar sebisa mungkin untuk tidak melakukan Pemutusan Hubungan Kerja (PHK) atau layoff, namun tidak dapat dipungkiri bahwa pada akhirnya layoff merupakan satu-satunya jalan yang dapat diambil perusahaan.
 """
 )
 
-st.header("Dua gelombang besar Layoff dari startup ada pada saat Covid 19 dan Tech Winter 2022.")
+st.markdown(
+"""
+Seperti yang kita ketahui, Covid-19 mengalami penurunan secara konsisten pada akhir Februari 2022 (https://covid19.go.id/). Hal ini dapat disimpulkan bahwa Layoff dengan sebab covid-19 berakhir pada Februari 2022 dan pada tahun yang sama dimulai era Winter tech. 
+Total (yang terkonfirmasi) employee yang terkena layoff mencapai lebih dari 187 ribu sejak era covid-19 (layoffs.fyi).\n
+Berikut data gelombang besar Layoff startup :
+"""
+)
 
+st.header("Dua gelombang besar Layoff startup")
+#ada pada saat Covid 19 dan Tech Winter 2022
 #PLOT DATA LAY-OFF DALAM KURUN WAKTU KEDALAM BAR CHART
 laidoff = dflayoff[['Bulan', 'Jumlah Tiap bulan']].set_index('Bulan').resample('M').sum()
 st.line_chart(laidoff)
@@ -38,13 +40,22 @@ with col1:
 with col2:
    st.caption("Layoff Masa Tech Winter 2022 (Maret 2022 - Oktober 2022)")
 st.text("")
+
 st.markdown(
 """
-Covid-19 Mengalami penurunan secara konsisten pada akhir Februari 2022 (https://covid19.go.id/). Hal ini dapat disimpulkan bahwa Layoff dengan sebab covid-19 berakhir pada Februari 2022 dan pada tahun yang sama dimulai era Winter tech. 
-Total (yang terkonfirmasi) employee yang terkena layoff mencapai lebih dari 187 ribu sejak era covid-19 (layoffs.fyi).\n
+Tech Winter bisa kita artikan sebagai periode penuruan ketertarikan dan investasi dalam bidang teknologi maju (advanced technology). Seperti yang kita ketahui, baru-baru ini terjadi downturn trend tech-based startup yang membuat kita semakin merasakan adanya tech winter(calcalistech). Tidak hanya di Indonesia, namun juga di seluruh dunia. Beberapa issue yang baru-baru ini terjadi : 
+- Banyaknya Layoff dari Startup di Dunia dan Indonesia
+- Penjualan Ecommerce menurun hingga 20% pada campaign 10.10 2022
+- Fabelio dinyatakan pailit
+- Traveloka menutup layanan Eats, Send dan Mart
+- HappyFresh menghentikan operasionalnya
+- dan lain sebagainya\n
+
 Perkembangan teknologi, aliran pendanaan, sumber daya manusia dan ekosistem startup berbeda di setiap Negara. Hal tersebut mempengaruhi perkembangan start-up di setiap negara, United States merupakan negara yang paling maju dalam bidang startup tech-based, Perusahaan besar seperti Tesla, Microsoft, Facebook (Meta), Netflix dan lain sebagainya berpusat disana. Jadi tidak heran jika duniamengalami dampak tech winter, United States menjadi negara yang paling banyak melakukan Layoff.\n
+
 """
 )
+
 #PLOT DATA LAYOFF TIAP NEGARA KEDALAM PIE CHART
 fig = go.Figure(
     go.Pie(
