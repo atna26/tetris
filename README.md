@@ -1,6 +1,6 @@
-# tetris
+# LAY-OFF EMPLOYEE STARTUP
 
-LAY-OFF EMPLOYEE STARTUP
+
 
 1. 2 Gelombang Besar Layoff Startup
 2. Lay off Employee startup di beberapa Negara
